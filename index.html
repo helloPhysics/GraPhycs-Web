@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GraPhycs 3</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/icon.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    /* This class is applied by JavaScript to trigger the glow 
+    on the images, reusing the hover styles for the glow effect.
+    */
+    .glow-images .social-icon {
+        filter: brightness(1.8) 
+                drop-shadow(0 0 5px var(--color-accent)) 
+                drop-shadow(0 0 10px rgba(0, 229, 255, 0.8));
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo-wrapper">
+        <a href="#home"> <img src="assets/logo.png" alt="GraPhycs Icon" class="logo-icon"> </a>
+      </div>
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        
+        <a 
+          href="#contact" 
+          onclick="highlightContactIcons(event)"
+        >Contact</a>
+        
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-section">
+      <div class="container">
+        <p class="subtitle">Powered by the Plotsense Hackathon 2025</p>
+        <div class="hero-content">
+          <h1>Gra<span class="animated-text">Phycs 3</span></h1>
+          <h3>Your Online Physics Experiment AI Assistant</h3>
+        </div>
+        <a href="https://graphycs.streamlit.app/" class="btn-primary" target="_blank">Start Plotting</a>
+      </div>
+    </section>
+
+    <section class="video-section">
+      <div class="container">
+        <h2><span>How to use Graphycs 3 </h2>
+        <p class="section-description">
+          Watch this quick demo to see how GraPhycs can analyze your physics
+          data instantly, plot your data, explain your data and lots more (God Mode).
+        </p>
+        <div class="video-wrapper">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/OkMDLTGN9EA?si=oHQlOAVEqzIP8gQv"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="container">
+        <h2> About GraPhycs 3</h2>
+        <p class="section-description">
+          GraPhycs is an **AI-powered Physics experiment lab assistant** designed to simplify the analysis of physics
+          experiments. Graphycs takes your raw data, plots
+          it, performs a linear regression, and instantly calculates critical physical parameters, saving you time and
+          ensuring accuracy. Yes, built with Plotsense Ai.
+        </p>
+
+        <div class="analysis-grid">
+          <div class="example-card">
+            <img src="assets/Period Squared_vs_Length_godmode (1).png" alt="Plot of Period Squared vs Length"
+              class="plot-img" />
+            <p class="caption">
+              Analysis of Period² vs. Length for a Pendulum
+            </p>
+          </div>
+          <div class="example-card">
+            <img src="assets/Position_vs_Time_godmode.png" alt="Plot of Position vs Time" class="plot-img" />
+            <p class="caption">Analysis of Position vs. Time for Motion</p>
+          </div>
+        </div>
+        <p class="how-to-use-text">
+          Simply upload your experimental data, select your variables, and let our AI do the rest!
+        </p>
+      </div>
+    </section>
+  </main>
+  
+  <footer id="contact" class="footer">
+    <div class="container">
+      <p>&copy; 2025 Hello Physics. All rights reserved.</p>
+      
+      <div class="footer-links" id="footer-icons">
+
+        <a href="mailto:hellophysics631@gmail.com" title="Email Us" class="icon-link">
+          <img src="assets/Gmail_icon_(2020).svg.png" alt="Gmail Icon" class="social-icon">
+        </a>
+
+        <a href="https://x.com/HelloPhysics_" target="_blank" title="Follow us on X" class="icon-link">
+          <img src="assets/twitter-x-seeklogo.png" alt="X Icon" class="social-icon">
+        </a>
+
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function highlightContactIcons(event) {
+      // 1. Prevent default anchor behavior (we want custom scroll/glow)
+      event.preventDefault();
+      
+      const footerElement = document.getElementById('contact');
+      const iconsContainer = document.getElementById('footer-icons');
+      
+      if (footerElement && iconsContainer) {
+        // 2. Smoothly scroll to the footer
+        footerElement.scrollIntoView({ behavior: 'smooth' });
+
+        // 3. Apply the temporary class to the icons container
+        iconsContainer.classList.add('glow-images');
+
+        // 4. Remove the class after 1.5 seconds (glow duration)
+        setTimeout(() => {
+          iconsContainer.classList.remove('glow-images');
+        }, 1500); 
+      }
+    }
+  </script>
+
+</body>
+
+</html>
